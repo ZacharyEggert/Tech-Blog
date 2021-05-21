@@ -1,38 +1,87 @@
-const router = require("express").Router();
-const handleError = require('../../utils/handleError')
+const router = require('express').Router();
+const { Post, User, Comment } = require('../../models');
+const handleError = require('../../utils/handleError');
+const withAuth = require('../../utils/withAuth');
 
 router.get('/', async (req, res) => {
-
     try {
-        const postsData = await null //TODO: ADD BLOG POST DATA QUERY findAll
-        console.log(postsData)
-        if(!postsData){
-            res.render('home');
-            return;
-        }
-        const posts = postsData.map(e => e.get({plain: true}))
-        console.log(posts)
-        res.render('home', {posts})
+        const postsData = await Post.findAll({
+            include: [
+                {
+                    model: Comment,
+                    foreignKey: 'post_id',
+                    include: [{ model: User, foreignKey: 'user_id' }],
+                },
+                {
+                    model: User,
+                    foreignKey: 'user_id',
+                },
+            ],
+        });
+        const posts = postsData.map((e) => e.get({ plain: true }));
 
+        console.log(posts);
+
+        res.render('home', { posts, loggedIn: req.session.loggedIn });
     } catch (err) {
-        handleError(req, res, err)
+        handleError(req, res, err);
     }
-})
+});
 
-router.get('/posts/:id', async (req, res) => {
+router.get('/login', async (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('login', { loggedIn: req.session.loggedIn });
+});
+
+router.get('/dashboard', withAuth, async (req, res) => {
     try {
-        const postData = await null //TODO: ADD BLOG POST DATA QUERY findByPk, include Comments
-        console.log(postData);
-        if(!postData){
-            res.redirect('/404')
-            return;
-        }
-        const post = postData.get({plain: true})
-        console.log(post)
-        res.render('onepost', post)
-    } catch (err) {
-        handleError(req, res, err)
-    }
-})
+        const userData = await User.findOne({
+            where: { name: req.session.name },
+        });
 
-module.exports = router
+        const user_id = req.session.user.id ?? userData.id;
+
+        const postsData = await Post.findAll({
+            where: { user_id },
+        });
+
+        const posts = postsData.map((e) => e.get({ plain: true }));
+
+        res.render('dashboard', { posts, loggedIn: req.session.loggedIn });
+    } catch (err) {
+        handleError(req, res, err);
+    }
+});
+
+router.get('/posts/:id', withAuth, async (req, res) => {
+    try {
+        const id = req.params.id;
+        const postData = await Post.findByPk(id, {
+            include: [
+                { model: User, foreignKey: 'user_id' },
+                {
+                    model: Comment,
+                    foreignKey: post_id,
+                    include: [{ model: User, foreignKey: 'user_id' }],
+                },
+            ],
+        });
+
+        const post = postData.get({ plain: true });
+
+        console.log(post);
+
+        res.render('onepost', {
+            post,
+            loggedIn: req.session.loggedIn,
+        });
+    } catch (err) {
+        handleError(req, res, err);
+    }
+});
+
+module.exports = router;
