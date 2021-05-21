@@ -77,3 +77,4 @@ typings/
 
 # tailwind build output
 public/css/style.css
+/public/css/style.css
