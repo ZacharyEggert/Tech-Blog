@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const handleError = require('../../utils/handleError');
+const handleError = require('../../../utils/handleError');
 const { Post, User, Comment } = require('../../../models');
 
 router.post('/', async (req, res) => {

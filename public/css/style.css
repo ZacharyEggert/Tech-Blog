@@ -31831,6 +31831,52 @@ video {
   --tw-backdrop-sepia: sepia(100%);
 }
 
+.nav-item{
+  display: inline;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  margin-top: 0.375rem;
+  margin-bottom: 0.375rem
+}
+
+@media (min-width: 768px) {
+  .nav-item {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+.btn{
+  border-radius: 0.75rem;
+  display: inline-block;
+  font-weight: 700;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem
+}
+
+.px-1\/12{
+  padding-left: 8.333%;
+  padding-right: 8.333%;
+}
+
+.px-2\/12{
+  padding-left: 16.666%;
+  padding-right: 16.666%;
+}
+
+.px-3\/12{
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -62939,6 +62985,21 @@ video {
 
   .sm\:backdrop-sepia {
     --tw-backdrop-sepia: sepia(100%);
+  }
+
+  .sm\:px-1\/12{
+    padding-left: 8.333%;
+    padding-right: 8.333%;
+  }
+
+  .sm\:px-2\/12{
+    padding-left: 16.666%;
+    padding-right: 16.666%;
+  }
+
+  .sm\:px-3\/12{
+    padding-left: 25%;
+    padding-right: 25%;
   }
 }
 
@@ -94051,6 +94112,21 @@ video {
   .md\:backdrop-sepia {
     --tw-backdrop-sepia: sepia(100%);
   }
+
+  .md\:px-1\/12{
+    padding-left: 8.333%;
+    padding-right: 8.333%;
+  }
+
+  .md\:px-2\/12{
+    padding-left: 16.666%;
+    padding-right: 16.666%;
+  }
+
+  .md\:px-3\/12{
+    padding-left: 25%;
+    padding-right: 25%;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -125161,6 +125237,21 @@ video {
 
   .lg\:backdrop-sepia {
     --tw-backdrop-sepia: sepia(100%);
+  }
+
+  .lg\:px-1\/12{
+    padding-left: 8.333%;
+    padding-right: 8.333%;
+  }
+
+  .lg\:px-2\/12{
+    padding-left: 16.666%;
+    padding-right: 16.666%;
+  }
+
+  .lg\:px-3\/12{
+    padding-left: 25%;
+    padding-right: 25%;
   }
 }
 
@@ -156273,6 +156364,21 @@ video {
   .xl\:backdrop-sepia {
     --tw-backdrop-sepia: sepia(100%);
   }
+
+  .xl\:px-1\/12{
+    padding-left: 8.333%;
+    padding-right: 8.333%;
+  }
+
+  .xl\:px-2\/12{
+    padding-left: 16.666%;
+    padding-right: 16.666%;
+  }
+
+  .xl\:px-3\/12{
+    padding-left: 25%;
+    padding-right: 25%;
+  }
 }
 
 @media (min-width: 1536px) {
@@ -187383,5 +187489,20 @@ video {
 
   .\32xl\:backdrop-sepia {
     --tw-backdrop-sepia: sepia(100%);
+  }
+
+  .\32xl\:px-1\/12{
+    padding-left: 8.333%;
+    padding-right: 8.333%;
+  }
+
+  .\32xl\:px-2\/12{
+    padding-left: 16.666%;
+    padding-right: 16.666%;
+  }
+
+  .\32xl\:px-3\/12{
+    padding-left: 25%;
+    padding-right: 25%;
   }
 }
