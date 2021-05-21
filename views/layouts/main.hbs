@@ -1,19 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{title}}</title>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+        <title>{{title}}</title>
 
-    <link rel="stylesheet" href="/css/style.css">
+        <link rel='stylesheet' href='/css/style.css' />
 
-</head>
-<body>
+    </head>
+    <body class="relative min-h-screen w-100">
+        <header class="absolute top-0 left-0 right-0 px-2 py-2 pb-3 text-right text-white bg-gray-900 w-100 md:px-6 md:py-6 md:pb-8">
+            <ul class="list-none">
+                <a href='/'>
+                    <li class="nav-item">Home</li>
+                </a>
+                <a href='/dashboard'>
+                    <li class="nav-item">Dashboard</li>
+                </a>
+                {{#if loggedIn}}
+                        <li class="nav-item">Logout</li>
+                {{else}}
+                    <a href='/login'>
+                        <li class="nav-item">Login</li>
+                    </a>
+                {{/if}}
+            </ul>
+        </header>
 
-    {{{body}}}
+        {{{body}}}
 
-
-    <script src="./js/script.js"></script>
-</body>
+        <script src='./js/script.js'></script>
+    </body>
 </html>
