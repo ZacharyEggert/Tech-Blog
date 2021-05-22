@@ -1,3 +1,5 @@
+const formatTimestamp = (tstamp) => {
+    return new Date(tstamp).toLocaleString();
+};
 
-
-module.exports = {}
+module.exports = { formatTimestamp };
