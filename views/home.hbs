@@ -1,0 +1,9 @@
+<main class='flex flex-col pt-4 px-1/12 md:px-2/12 md:pt-8'>
+
+    <div class="h-16 md:h-24"></div>
+
+    {{#each posts as |post|}}
+    {{> postcard post}}
+    {{/each}}
+
+</main>

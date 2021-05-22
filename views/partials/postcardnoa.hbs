@@ -1,0 +1,17 @@
+<div
+    data-post='{{id}}'
+    class='w-full p-2 my-2 text-center bg-gray-200 rounded-md md:my-4 flex-init post-card'
+>
+    <div class="flex flex-row justify-between">
+            <h5 class='text-gray-500'>{{user.name}}</h5>
+            <h2
+                class='inline-block px-4 py-2 text-xl text-center bg-white rounded-md md:text-2xl'
+            >{{title}}</h2>
+            <h5 class='text-gray-500'>{{formatTimestamp createdAt}}</h5>
+        </div>
+    <p
+        class='px-2 py-2 mt-2 text-base text-left bg-white rounded-md md:px-4 md:text-lg'
+    >
+        {{content}}
+    </p>
+</div>

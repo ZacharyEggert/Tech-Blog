@@ -1,0 +1,75 @@
+<main
+    class='flex flex-row items-center justify-center h-full justify-items-center'
+>
+
+    <div
+        class='flex-none w-10/12 px-6 py-4 bg-gray-200 rounded-md md:p-8 md:px-16 md:w-6/12'
+    >
+        <form id='login' class='text-right'>
+            <label for='email' class='mr-8 text-left'>Email:</label>
+            <input
+                type='email'
+                name='email'
+                id='loginEmail'
+                class='w-48 px-2 my-2 md:w-96'
+            />
+            <br />
+            <label for='password' class='mr-8 text-left'>Password:</label>
+            <input
+                type='password'
+                name='password'
+                id='loginPassword'
+                class='w-48 px-2 my-2 md:w-96'
+            />
+            <br />
+            <button
+                type='reset'
+                id='swapToSignup'
+                class='bg-white border-2 border-black border-solid btn'
+            >New? Sign Up Here</button>
+            <button
+                type='submit'
+                id='loginButton'
+                class='my-2 bg-blue-200 border-2 border-white border-solid btn'
+            >Login</button>
+        </form>
+        <form id='signup' class='hidden text-right'>
+            <label for='username' class='mr-8 text-left'>Username:</label>
+            <input
+                type='text'
+                name='username'
+                id='signupUsername'
+                class='w-48 px-2 my-2 md:w-96'
+            />
+            <br />
+            <label for='email' class='mr-8 text-left'>Email:</label>
+            <input
+                type='email'
+                name='email'
+                id='signupEmail'
+                class='w-48 px-2 my-2 md:w-96'
+            />
+            <br />
+            <label for='password' class='mr-8 text-left'>Password:</label>
+            <input
+                type='password'
+                name='password'
+                id='signupPassword'
+                class='w-48 px-2 my-2 md:w-96'
+            />
+            <br />
+            <button
+                type='reset'
+                id='swapToLogin'
+                class='bg-white border-2 border-black border-solid btn'
+            >Already a Member? Login Here</button>
+            <button
+                type='submit'
+                id='signupButton'
+                class='my-2 bg-blue-200 border-2 border-white border-solid btn'
+            >Signup</button>
+        </form>
+    </div>
+</main>
+
+<script src='/js/login.js'></script>

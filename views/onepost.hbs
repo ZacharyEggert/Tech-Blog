@@ -1,0 +1,30 @@
+<main class='flex flex-col pt-4 px-1/12 md:px-2/12 md:pt-8'>
+
+    <div class="h-16 md:h-24"></div>
+
+    {{> postcardnoa post}}
+
+    <div id="comments" class="flex flex-col px-1/12">
+        {{#each post.comments as |comment|}}
+            {{> commentCard comment}}
+        {{/each}}
+
+        <div data-post='{{post.id}}' id='newComment' class="flex-initial w-full px-2 pt-2 my-2 text-center bg-gray-200 rounded-md md:my-4">
+            <form>
+                <textarea 
+                    name="content" 
+                    id="newCommentContent" 
+                    class="w-full mb-2 rounded-md resize-y focus:outline-none" 
+                    placeholder="Add a comment..."></textarea>
+                <button 
+                    type="reset" 
+                    id="newCommentSubmit" 
+                    class="mt-2 text-xl bg-blue-200 border-2 border-black border-solid btn">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<script src="/js/comment.js"></script>

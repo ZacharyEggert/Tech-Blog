@@ -18,7 +18,7 @@
                     <li class="nav-item">Dashboard</li>
                 </a>
                 {{#if loggedIn}}
-                        <li class="nav-item">Logout</li>
+                        <a href="/"><li class="nav-item" id="logout">Logout</li></a> 
                 {{else}}
                     <a href='/login'>
                         <li class="nav-item">Login</li>
@@ -29,6 +29,6 @@
 
         {{{body}}}
 
-        <script src='./js/script.js'></script>
+        <script src='/js/script.js'></script>
     </body>
 </html>

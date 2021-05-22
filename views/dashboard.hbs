@@ -1,0 +1,37 @@
+<main>
+
+    <div class='h-16 md:h-24'></div>
+    <div class='flex flex-col pt-4 px-1/12 md:px-2/12 md:pt-8' id='posts'>
+    {{#if posts}}
+        {{#each posts as |post|}}
+        {{> postcardnoa post}}
+        {{/each}}
+    {{/if}}
+        <div id='newPost' class='w-full p-2 text-center bg-gray-200 rounded-md flex-init'>
+            <button id='newPostBtn' class='my-2 text-2xl bg-white border-2 border-black border-solid btn'>New Post</button>
+            <form id='newPostForm' class='hidden'>
+                <input 
+                    type='text' 
+                    name='title'
+                    id='newPostTitle'
+                    placeholder="Post Title" 
+                    class="w-10/12 px-4 py-1 my-2 text-2xl rounded-md focus:outline-none"
+                />
+                <textarea 
+                    name="content" 
+                    id="newPostContent" 
+                    class="w-full my-2 rounded-md resize-y focus:outline-none" 
+                    placeholder="Content..."></textarea>
+                <button 
+                    type="reset" 
+                    id="newPostSubmit" 
+                    class="my-2 text-xl bg-blue-200 border-2 border-black border-solid btn">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+
+</main>
+
+<script src="/js/dashboard.js"></script>
