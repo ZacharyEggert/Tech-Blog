@@ -7,8 +7,9 @@ router.use('/posts', postRoutes);
 
 router.post('/login', async (req, res) => {
     try {
-        const { name, password } = req.body;
-        const user = await User.findOne({ where: { name } });
+        const { email, password } = req.body;
+        console.log(req.body)
+        const user = await User.findOne({ where: { email } });
         if (!user) {
             console.log(user);
             res.status(404).json({
@@ -27,7 +28,7 @@ router.post('/login', async (req, res) => {
         req.session.save(() => {
             req.session.loggedIn = true;
             req.session.user = user.get({plain: true});
-            req.session.name = name;
+            req.session.name = user.name;
 
             res.status(200).json({ message: 'Login successful' });
         });
@@ -40,7 +41,7 @@ router.post('/signup', async (req, res) => {
     try {
         const { name, password, email } = req.body;
 
-        let existingUser = User.findOne({ where: { name } });
+        let existingUser = await User.findOne({ where: { name } });
         if (existingUser) {
             res.status(409).json({
                 message: 'Username already taken',
@@ -49,7 +50,7 @@ router.post('/signup', async (req, res) => {
             return;
         }
 
-        existingUser = User.findOne({ where: { email } });
+        existingUser = await User.findOne({ where: { email } });
         if (existingUser) {
             res.status(409).json({
                 message: 'Email already in use',
@@ -58,7 +59,7 @@ router.post('/signup', async (req, res) => {
             return;
         }
 
-        const user = User.create({ name, email, password });
+        const user = await User.create({ name, email, password });
 
         console.log(user);
         req.session.save(() => {

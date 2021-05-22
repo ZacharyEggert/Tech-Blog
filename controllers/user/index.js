@@ -47,6 +47,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
         const postsData = await Post.findAll({
             where: { user_id },
+            include: [{model: User, foreignKey: 'user_id'},{model: Comment, foreignKey: 'post_id', include: [{model: User, foreignKey: 'user_id'}]}]
         });
 
         const posts = postsData.map((e) => e.get({ plain: true }));
@@ -65,7 +66,7 @@ router.get('/posts/:id', withAuth, async (req, res) => {
                 { model: User, foreignKey: 'user_id' },
                 {
                     model: Comment,
-                    foreignKey: post_id,
+                    foreignKey: 'post_id',
                     include: [{ model: User, foreignKey: 'user_id' }],
                 },
             ],
